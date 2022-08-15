@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/s/bach/j/under/jstrande/cs253/Hw4/Ratio.h
+iostream
+-
+stdarg.h
+-
+
+/s/bach/j/under/jstrande/cs253/Hw4/test.cc
+Ratio.h
+/s/bach/j/under/jstrande/cs253/Hw4/Ratio.h
+cassert
+-
+fstream
+-
+iostream
+-
+stdexcept
+-
+

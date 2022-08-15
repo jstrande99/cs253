@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/hw2.dir/Schedule.cc.o"
-  "CMakeFiles/hw2.dir/Schedule.cc.o.d"
-  "libhw2.a"
-  "libhw2.pdb"
+  "CMakeFiles/hw2.dir/main.cc.o"
+  "hw2"
+  "hw2.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

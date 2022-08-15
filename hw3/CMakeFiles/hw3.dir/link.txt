@@ -1,1 +1,1 @@
-/bin/c++ CMakeFiles/hw3.dir/main.cc.o -o hw3 
+/bin/c++     CMakeFiles/hw3.dir/main.cc.o  -o hw3 

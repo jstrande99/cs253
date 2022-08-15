@@ -1,4 +1,4 @@
-/s/bach/j/under/jstrande/compSci253/hw3/CMakeFiles/edit_cache.dir
-/s/bach/j/under/jstrande/compSci253/hw3/CMakeFiles/rebuild_cache.dir
-/s/bach/j/under/jstrande/compSci253/hw3/CMakeFiles/hw3.dir
-/s/bach/j/under/jstrande/compSci253/hw3/CMakeFiles/hw3.tar.dir
+/s/bach/j/under/jstrande/cs253/hw3/CMakeFiles/rebuild_cache.dir
+/s/bach/j/under/jstrande/cs253/hw3/CMakeFiles/edit_cache.dir
+/s/bach/j/under/jstrande/cs253/hw3/CMakeFiles/hw3.dir
+/s/bach/j/under/jstrande/cs253/hw3/CMakeFiles/hw3.tar.dir

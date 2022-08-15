@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/hw3.dir/main.cc.o"
-  "CMakeFiles/hw3.dir/main.cc.o.d"
   "hw3"
   "hw3.pdb"
 )

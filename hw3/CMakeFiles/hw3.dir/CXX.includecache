@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/s/bach/j/under/jstrande/cs253/hw3/main.cc
+iostream
+-
+unistd.h
+-
+time.h
+-
+stdio.h
+-
+stdlib.h
+-
+iomanip
+-
+fstream
+-
+cctype
+-
+algorithm
+-
+
