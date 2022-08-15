@@ -1,0 +1,35 @@
+#! /bin/bash
+
+
+old_suffix=$1
+
+new_suffix=$2
+
+if (( $# != 2 ))
+then
+	echo "$0: Incorrect amount of arguments added: ./rn _ _" >&2
+	exit 1
+fi
+
+for f in *.$old_suffix
+do
+	new_file=./${f%.*}.$new_suffix
+if [[ -e $new_file ]]
+then
+	echo "$0: File already exists" >&2
+	exit 1
+else
+    new_name=${f%.*}.$new_suffix
+    mv $f $new_name
+    echo Renamed $f to $new_name
+    exit 0
+fi
+done
+
+
+if (( $? != 0 ))
+then
+	echo "$0: Unable to rename file " >&2
+	exit 1
+fi
+

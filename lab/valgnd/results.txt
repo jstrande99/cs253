@@ -1,0 +1,24 @@
+exp1.cc:    Delete[] not called. 
+
+exp2.cc:    x[10] is set as null thus has 0 bytes after size. 
+            x[9] is inbounds but not x[10].
+            delete[] is also not called. 
+
+exp3.cc:    x is not initiallized. 
+
+exp4.cc:    y is not initiallized at the start, and might not be initiallized in the if loop.
+
+exp5.cc:    index 12345678 is out of bounds of array x.
+
+exp6.cc:    delete [] greeting; is called then greeting is being used. 
+            delete comes after use of variable.
+
+exp7.cc:    delete p: called should be: delete[] p.
+
+exp8.cc:    free(p): called should be: delete[] p: free() is for malloc and calloc.
+
+exp9.cc:    a+=3: makes the pointer point 3 to a[13], which is nonexistant.
+            Then deletes out of the array spots. 
+
+exp10.cc:   unsigned int can not be negative or else it will be undefined behavor. 
+            the result should not be a unsigned if you want to get -10. 

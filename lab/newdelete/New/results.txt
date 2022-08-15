@@ -1,0 +1,46 @@
+1. New returns (void *) as opposed to (int *) or (double *) because applies 
+to any pointer.
+
+2. 
+    1. double *p is a pointer to a new double. (class foo doesn't get called. because double is not type foo)
+    2. Foo *q is a pointer to a new foo. (calls class foo, returns 0x257ed0, because Foo is inoked)
+    3. Foo *r is a pointer to a new foo. (calls class foo, returns 0xe59290, because Foo is invoked) 
+    4. delete p invokes the none redefined delete function because p isn't class foo. 
+    5. delete q invokes redefined delete becaue q is type foo.
+    6. delete r invokes redefined delete beacue r is type foo. 
+    7. return 0; returns a sucess of program. 
+Operator new and delete are declared static functions so that they are able to called 
+even if there are no objects instances of class Foo.    
+
+3. forbid1.cc does not compile, this is due to *operator new(std::size_t); is in the private
+section of class Foo. This can only be accessed within class Foo. 
+
+4. forbid2.cc does not compile, this is due to (= delete) being called thus making the 
+functions new and delete not be able to be called because they are deleted. 
+
+5. forbid-mixin.cc declares ctor and dtor as protected because then only child classes of 
+class NoNewDelete can access the ctors and dtors. 
+
+6. Having declared a stack adress in main(), it tries to delete it. To detect multiple deletions, 
+I would store the created addresses then remove them if they are deleted. If the address isn't
+found in the stored vector then the delete would not processed and an error would be thrown. 
+
+7. scrub.cc uses both 'q' and '!' to fill the memory. I would choose to use ! because it is not 
+an int, double or a pointer. And is a poor string or char, so then it would be more "disruptive"
+
+8. ~Foo has size of 8. ~The difference in decimal is 32 from p to q. This is because when new is 
+called, it does not mean that they will be placed together in the memory segments. 
+~Bar has size of 8. ~The difference in decimal is 8 from r to s. This is because linked lists 
+are being used. When linked lists are used the memory segments are placed together (every 8 bits)
+
+9. 
+    1. Having class Bar derived from class foo it makes it a child class which in turn can 
+	access the redefined functions as long as they aren't private. 
+    2. Yes bar will inherit redefined new and delete so long as they are not private. 
+    3. if size of bar is larger than size of foo then the inheritance won't work. 
+    4. to fix this I would make new and delete have their own default ctor in class bar. This 
+	would make the size difference not alter the program. 
+
+11. bar takes 3108 and foo takes 3240. This is because bar uses a union which stores all 
+elements in the same spot where as foo uses a struct which stores the elements in different memory
+locations. 
