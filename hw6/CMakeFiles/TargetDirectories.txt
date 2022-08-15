@@ -1,0 +1,5 @@
+/s/bach/j/under/jstrande/compSci253/hw6/CMakeFiles/rebuild_cache.dir
+/s/bach/j/under/jstrande/compSci253/hw6/CMakeFiles/edit_cache.dir
+/s/bach/j/under/jstrande/compSci253/hw6/CMakeFiles/hw6.tar.dir
+/s/bach/j/under/jstrande/compSci253/hw6/CMakeFiles/hw6.dir
+/s/bach/j/under/jstrande/compSci253/hw6/CMakeFiles/test.dir
