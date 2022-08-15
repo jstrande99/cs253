@@ -1,0 +1,64 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main(){
+	vector<string> censor = {"alpha", "beta", "gamma", "delta"};
+	string inStr;
+	string words;
+	string x;
+	string f;
+
+	try{
+	while(getline(cin, words)){
+		//cout << words << '\n';
+		inStr += words + '\n';
+	}
+	for(int i = 0; i < 4; i++){
+		if(inStr.find(censor[i])){
+			inStr.replace(inStr.find(censor[i]), censor[i].size(), "CENSORED");
+		}
+		else{
+			int sizes = inStr.size();
+			int censSize = censor[i].size();
+
+			for(int la = 0; la < sizes; la++){
+				for(int inner = 0; inner < censSize; inner++){
+				//cout << inStr[inStr.find(censor[i][inner])];
+				
+				if(inStr[la] == censor[i][inner]){
+					cout << inStr[la];
+					
+				}
+				}
+			}
+			cout << '\n';
+			for(auto j: inStr){
+				if(isalpha(j)){
+					x = x + j;
+				}
+				else{
+					x = x + j;
+				}
+//MAKE TO FOR LOOP FOR CENSOR like above
+				if(x == censor[i]){
+					x.replace(x.find(censor[i]),censor[i].size(),"CENSORED");
+				}
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+				//if(!isalpha(j)){
+				//	x = x + j;
+				//}
+			}
+		cout << x << '\n';
+		}
+	}
+	//cout << x ;
+	//cout << inStr;
+	}catch(const out_of_range& er){
+		//cerr << "Out of range error:" << er.what() << '\n';
+		exit(1);
+	}
+}
+
