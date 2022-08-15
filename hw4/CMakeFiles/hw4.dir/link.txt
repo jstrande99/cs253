@@ -1,0 +1,2 @@
+/bin/ar qc libhw4.a CMakeFiles/hw4.dir/Show.cc.o CMakeFiles/hw4.dir/Schedule.cc.o
+/bin/ranlib libhw4.a
