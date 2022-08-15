@@ -1,0 +1,4 @@
+/s/bach/j/under/jstrande/compSci253/hw0/testdir/CMakeFiles/rebuild_cache.dir
+/s/bach/j/under/jstrande/compSci253/hw0/testdir/CMakeFiles/edit_cache.dir
+/s/bach/j/under/jstrande/compSci253/hw0/testdir/CMakeFiles/hw0.dir
+/s/bach/j/under/jstrande/compSci253/hw0/testdir/CMakeFiles/hw0.tar.dir
