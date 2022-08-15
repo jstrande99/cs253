@@ -1,14 +1,15 @@
-
-# Consider dependencies only in project.
-set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
-
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
+  "CXX"
   )
+# The set of files for implicit dependencies of each language:
+set(CMAKE_DEPENDS_CHECK_CXX
+  "/s/bach/j/under/jstrande/cs253/hw0/main.cc" "/s/bach/j/under/jstrande/cs253/hw0/CMakeFiles/hw0.dir/main.cc.o"
+  )
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
-# The set of dependency files which are needed:
-set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/s/bach/j/under/jstrande/compSci253/hw0/main.cc" "CMakeFiles/hw0.dir/main.cc.o" "gcc" "CMakeFiles/hw0.dir/main.cc.o.d"
+# The include file search paths:
+set(CMAKE_CXX_TARGET_INCLUDE_PATH
   )
 
 # Targets to which this target links.
