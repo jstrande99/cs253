@@ -1,0 +1,116 @@
+exp1.cc: delete not called
+____________________________________________________________________________________________
+exp2.cc: The problem is that there is 10 spots but x[10] is out of bounds, x[9] is inbounds. 
+	 As well the pointer is not deleted. 
+
+           Invalid write of size 1
+==21066==    at 0x401144: main (exp2.cc:3)
+==21066==  Address 0x4df9c8a is 0 bytes after a block of size 10 alloc'd
+==21066==    at 0x4839593: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==21066==    by 0x401137: main (exp2.cc:2)
+==21066== 
+==21066== 10 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==21066==    at 0x4839593: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==21066==    by 0x401137: main (exp2.cc:2)
+
+__________________________________________________________________________________________
+exp3.cc: X is not initialized
+
+	   Conditional jump or move depends on uninitialised value(s)
+==21841==    at 0x40118E: main (exp3.cc:11)
+__________________________________________________________________________________________
+exp4.cc: y is never initialized
+
+==22263== Conditional jump or move depends on uninitialised value(s)
+==22263==    at 0x401175: foo(int) (exp4.cc:6)
+==22263==    by 0x4011B6: main (exp4.cc:15)
+__________________________________________________________________________________________
+exp5.cc: index 12345678 is not within the bounds of the array
+
+==22649== Invalid write of size 1
+==22649==    at 0x40111E: main (exp5.cc:3)
+==22649==  Address 0x1fffbc5b84 is not stack'd, malloc'd or (recently) free'd
+==22649== 
+==22649== 
+==22649== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==22649==  Access not within mapped region at address 0x1FFFBC5B84
+==22649==    at 0x40111E: main (exp5.cc:3)
+==22649==  If you believe this happened as a result of a stack
+==22649==  overflow in your program's main thread (unlikely but
+==22649==  possible), you can try to increase the size of the
+==22649==  main thread stack using the --main-stacksize= flag.
+==22649==  The main thread stack size used in this run was 8388608.
+
+__________________________________________________________________________________________
+exp6.cc: This is happening cause it is trying to make a string into a char array, then deletes the arry before printing
+
+==22907== Invalid read of size 1
+==22907==    at 0x483BBE6: strlen (vg_replace_strmem.c:461)
+==22907==    by 0x49F942D: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib64/libstdc++.so.6.0.27)
+==22907==    by 0x4011BD: main (exp6.cc:9)
+==22907==  Address 0x4df9c80 is 0 bytes inside a block of size 1,024 free'd
+==22907==    at 0x483A5C6: operator delete[](void*) (vg_replace_malloc.c:651)
+==22907==    by 0x4011AC: main (exp6.cc:8)
+==22907==  Block was alloc'd at
+==22907==    at 0x4839593: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==22907==    by 0x401187: main (exp6.cc:6)
+==22907== 
+==22907== Invalid read of size 1
+==22907==    at 0x483BBF4: strlen (vg_replace_strmem.c:461)
+==22907==    by 0x49F942D: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib64/libstdc++.so.6.0.27)
+==22907==    by 0x4011BD: main (exp6.cc:9)
+==22907==  Address 0x4df9c81 is 1 bytes inside a block of size 1,024 free'd
+==22907==    at 0x483A5C6: operator delete[](void*) (vg_replace_malloc.c:651)
+==22907==    by 0x4011AC: main (exp6.cc:8)
+==22907==  Block was alloc'd at
+==22907==    at 0x4839593: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==22907==    by 0x401187: main (exp6.cc:6)
+==22907== 
+==22907== Invalid read of size 1
+==22907==    at 0x4C9C443: _IO_default_xsputn (in /usr/lib64/libc-2.29.so)
+==22907==    by 0x4C9A77A: _IO_file_xsputn@@GLIBC_2.2.5 (in /usr/lib64/libc-2.29.so)
+==22907==    by 0x4C8F378: fwrite (in /usr/lib64/libc-2.29.so)
+==22907==    by 0x49F9082: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib64/libstdc++.so.6.0.27)
+==22907==    by 0x49F943B: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib64/libstdc++.so.6.0.27)
+==22907==    by 0x4011BD: main (exp6.cc:9)
+==22907==  Address 0x4df9c80 is 0 bytes inside a block of size 1,024 free'd
+==22907==    at 0x483A5C6: operator delete[](void*) (vg_replace_malloc.c:651)
+==22907==    by 0x4011AC: main (exp6.cc:8)
+==22907==  Block was alloc'd at
+==22907==    at 0x4839593: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==22907==    by 0x401187: main (exp6.cc:6)
+____________________________________________________________________________________________________________________
+exp7.cc: the point is being created then destructed in the incorrect way
+
+==23180== Mismatched free() / delete / delete []
+==23180==    at 0x483A0D6: operator delete(void*, unsigned long) (vg_replace_malloc.c:595)
+==23180==    by 0x401161: main (exp7.cc:3)
+==23180==  Address 0x4df9c80 is 0 bytes inside a block of size 8,000 alloc'd
+==23180==    at 0x4839593: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==23180==    by 0x401147: main (exp7.cc:2)
+____________________________________________________________________________________________________________________
+exp8.cc: using free() instead of delete [] 
+
+==23379== Mismatched free() / delete / delete []
+==23379==    at 0x4839A0C: free (vg_replace_malloc.c:540)
+==23379==    by 0x401157: main (exp8.cc:5)
+==23379==  Address 0x4df9c80 is 0 bytes inside a block of size 8,000 alloc'd
+==23379==    at 0x4839593: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==23379==    by 0x401147: main (exp8.cc:4)
+___________________________________________________________________________________________________________________
+exp9.cc: Adding 3 to a which makes the index start at the incorrect position for deleting
+
+==23665== Invalid free() / delete / delete[] / realloc()
+==23665==    at 0x483A5C6: operator delete[](void*) (vg_replace_malloc.c:651)
+==23665==    by 0x401163: main (exp9.cc:4)
+==23665==  Address 0x4df9cb0 is 48 bytes inside a block of size 160 alloc'd
+==23665==    at 0x4839593: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==23665==    by 0x401147: main (exp9.cc:2)
+==23665== 
+==23665== 160 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==23665==    at 0x4839593: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==23665==    by 0x401147: main (exp9.cc:2)
+___________________________________________________________________________________________________________________
+exp10.cc: Using the unsigned int for the difference means that the return will be a large value. instead of -10. 
+
+

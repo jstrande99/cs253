@@ -1,0 +1,16 @@
+ #! /bin/bash
+
+    old_suffix=$1
+    new_suffix=$2
+
+    for f in *.$old_suffix
+    do
+        new_name=${f%.*}.$new_suffix
+        echo Rename $f to $new_name
+	mv $f $new_name 
+    done
+
+    if (($#!=2))
+    then
+	echo to many vars >*2
+    fi
